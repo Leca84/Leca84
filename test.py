@@ -7,3 +7,5 @@ elif a==b or a==c:
     print(2)
 else:
     print(0)
+
+print('done')
