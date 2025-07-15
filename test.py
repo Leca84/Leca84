@@ -9,3 +9,4 @@ else:
     print(0)
 
 print('done')
+print('done')
