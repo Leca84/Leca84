@@ -1,4 +1,5 @@
 # минимум из двух чисел
+# правильно
 a = int(input())
 b = int(input())
 if a < b:
@@ -9,6 +10,7 @@ else:
 
 
 # знак числа
+# правильно
 x = int(input())
 if x > 0:
     print(1)
@@ -19,6 +21,7 @@ else:
 
 
 # шахматная доска
+# правильно, сам сделал?
 x1, y1 = int(input()), int(input()) 
 x2, y2 = int(input()), int(input()) 
 if (x1 + y1) % 2 == (x2 + y2) % 2:
@@ -28,8 +31,10 @@ else:
 
 
 # Високостный год
-    year = int(input())
-if (year % 4 = 0 and year % 100 != 0) or (year% 400 ==0):
+# правильно, сам сделал?
+year = int(input())
+#if (year % 4 = 0 and year % 100 != 0) or (year% 400 ==0):
+if (year % 4 == 0 and year % 100 != 0) or (year% 400 ==0):
     print("YES")
 else:
     print("NO")
