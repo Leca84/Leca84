@@ -29,3 +29,5 @@ elif x1="white" and x2="white":
     print("YES")
 else:
     print("NO")
+
+    34563
