@@ -39,3 +39,10 @@ elif b<=a and b<=c:
     print(b)
 else:
     print(c)
+#минимум из двух чисел
+a= int(input())
+b= int(input())
+if a<b:
+    print(a)
+else:
+    print(b)
