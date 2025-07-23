@@ -29,3 +29,13 @@ elif (a % 100 == 0):
     print("NO")
 else:
     print("NO")
+#минимум из трех чисел
+a= int(input())
+b= int(input())
+c= int(input())
+if a<=b and a<=c:
+    print(a)
+elif b<=a and b<=c:
+    print(b)
+else:
+    print(c)
