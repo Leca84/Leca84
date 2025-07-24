@@ -36,3 +36,12 @@ elif (a % 100 == 0):
     print("NO")
 else:
     print("NO")
+#яша плавает в бассейне
+N= int(input())
+M= int(input())
+x= int(input())
+y= int(input())
+if y>x:
+    print(x)
+else:
+    print(y)
