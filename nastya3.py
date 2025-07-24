@@ -45,3 +45,7 @@ if y>x:
     print(x)
 else:
     print(y)
+#последняя цифра числа
+k = int(input())
+y = k % 10
+print(y)
