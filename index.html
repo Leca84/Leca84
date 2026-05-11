@@ -102,8 +102,32 @@
       background: var(--bg);
       padding-top: 56px;
     }
+    .hero-layout {
+      display: flex; align-items: center; gap: 64px; justify-content: space-between;
+    }
     .hero-inner {
-      display: flex; flex-direction: column; gap: 20px;
+      display: flex; flex-direction: column; gap: 20px; flex: 1;
+    }
+    .hero-photo-wrap {
+      flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+    }
+    .hero-photo {
+      width: 220px; height: 220px;
+      border-radius: 50%;
+      object-fit: cover; object-position: center 10%;
+      border: 2px solid var(--border);
+      box-shadow: 0 0 0 6px var(--bg2), 0 0 0 7px var(--border);
+      transition: box-shadow 0.3s;
+    }
+    [data-theme="dark"] .hero-photo {
+      mix-blend-mode: multiply;
+      box-shadow: 0 0 0 6px var(--bg), 0 0 40px rgba(88,166,255,0.15);
+    }
+    .hero-photo-wrap:hover .hero-photo {
+      box-shadow: 0 0 0 6px var(--bg2), 0 0 0 7px var(--accent);
+    }
+    [data-theme="dark"] .hero-photo-wrap:hover .hero-photo {
+      box-shadow: 0 0 0 6px var(--bg), 0 0 50px rgba(88,166,255,0.3);
     }
     .hero-badge {
       display: inline-block;
@@ -259,6 +283,10 @@
     footer a { color: var(--accent); text-decoration: none; }
 
     /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .hero-layout { flex-direction: column-reverse; gap: 32px; }
+      .hero-photo { width: 160px; height: 160px; }
+    }
     @media (max-width: 640px) {
       nav { padding: 0 16px; }
       .nav-links { display: none; }
@@ -292,36 +320,41 @@
 <!-- ── HERO ── -->
 <section id="hero">
   <div class="container">
-    <div class="hero-inner">
-      <div class="hero-badge">👋 Открыт к предложениям</div>
-      <h1 class="hero-name">Виталий<br>Иванов</h1>
-      <div class="hero-title">DevOps &amp; Системный Администратор</div>
-      <p class="hero-desc">
-        Более 10 лет опыта в запуске, модернизации и управлении IT-инфраструктурой организаций.
-        Администрирую Linux и Windows, настраиваю высоконагруженные кластеры, внедряю мониторинг
-        и автоматизацию. Уверенно работаю в условиях 99% SLA.
-      </p>
-      <div class="hero-meta">
-        <div class="hero-meta-item">
-          <span class="hero-icon">📍</span>
-          <span>Турция · готов к релокации</span>
+    <div class="hero-layout">
+      <div class="hero-inner">
+        <div class="hero-badge">👋 Открыт к предложениям</div>
+        <h1 class="hero-name">Виталий<br>Иванов</h1>
+        <div class="hero-title">DevOps &amp; Системный Администратор</div>
+        <p class="hero-desc">
+          Более 10 лет опыта в запуске, модернизации и управлении IT-инфраструктурой организаций.
+          Администрирую Linux и Windows, настраиваю высоконагруженные кластеры, внедряю мониторинг
+          и автоматизацию. Уверенно работаю в условиях 99% SLA.
+        </p>
+        <div class="hero-meta">
+          <div class="hero-meta-item">
+            <span class="hero-icon">📍</span>
+            <span>Москва</span>
+          </div>
+          <div class="hero-meta-item">
+            <span class="hero-icon">📧</span>
+            <a href="mailto:lecavalie@gmail.com">lecavalie@gmail.com</a>
+          </div>
+          <div class="hero-meta-item">
+            <span class="hero-icon">📱</span>
+            <a href="tel:+79174528411">+7 (917) 452-84-11</a>
+          </div>
+          <div class="hero-meta-item">
+            <span class="hero-icon">🌐</span>
+            <span>English — Upper-Intermediate</span>
+          </div>
         </div>
-        <div class="hero-meta-item">
-          <span class="hero-icon">📧</span>
-          <a href="mailto:lecavalie@gmail.com">lecavalie@gmail.com</a>
-        </div>
-        <div class="hero-meta-item">
-          <span class="hero-icon">📱</span>
-          <a href="tel:+79174528411">+7 (917) 452-84-11</a>
-        </div>
-        <div class="hero-meta-item">
-          <span class="hero-icon">🌐</span>
-          <span>English — Upper-Intermediate</span>
+        <div class="hero-actions">
+          <a class="btn-primary" href="#contacts">Связаться</a>
+          <a class="btn-outline" href="#career">Опыт работы</a>
         </div>
       </div>
-      <div class="hero-actions">
-        <a class="btn-primary" href="#contacts">Связаться</a>
-        <a class="btn-outline" href="#career">Опыт работы</a>
+      <div class="hero-photo-wrap">
+        <img class="hero-photo" src="photo.jpg" alt="Виталий Иванов" />
       </div>
     </div>
   </div>
@@ -375,9 +408,49 @@
       <div class="timeline-item current fade-in">
         <div class="timeline-dot"></div>
         <div class="timeline-header">
+          <span class="timeline-company">ПАО Сбербанк</span>
+          <span class="timeline-role">— Senior инженер по сопровождению</span>
+          <span class="timeline-period">11.2023 — настоящее время</span>
+        </div>
+        <div class="timeline-body">
+          <ul>
+            <li>Мониторинг и диагностика потоков данных в <strong>Apache Kafka</strong>: настройка топиков, consumer groups, анализ лагов, балансировка нагрузки и устранение инцидентов.</li>
+            <li>Администрирование стека <strong>ELK</strong> (Elasticsearch, Logstash, Kibana): сбор и индексирование логов микросервисов, настройка ILM-политик и retention, построение Kibana-дашбордов.</li>
+            <li>Настройка и поддержка дашбордов мониторинга в <strong>Grafana</strong>; интеграция с <strong>Zabbix</strong> для алертинга и контроля SLA.</li>
+            <li>Сопровождение приложений в кластерах <strong>OpenShift / Kubernetes</strong>: деплой, масштабирование, анализ событий подов, работа с Helm-чартами и манифестами.</li>
+            <li>Управление секретами и PKI через <strong>HashiCorp Vault</strong>: ротация, выдача динамических секретов, аудит доступа к чувствительным данным.</li>
+            <li>Администрирование объектного хранилища <strong>S3</strong> и аналитической СУБД <strong>GreenPlum</strong>; поддержка ETL-процессов и аналитических запросов.</li>
+            <li>Управление сервисной сеткой <strong>Istio</strong>: настройка traffic policies, mutual TLS, observability и circuit-breaking.</li>
+            <li>Интеграционное тестирование и отладка REST/gRPC API с помощью <strong>Insomnia</strong>; разбор инцидентов P1/P2, дежурства L2/L3.</li>
+            <li>Ведение документации в <strong>Confluence</strong>, управление задачами в <strong>Jira</strong>, работа с кодовой базой через <strong>BitBucket</strong>.</li>
+          </ul>
+        </div>
+        <div class="timeline-tags">
+          <span class="tag">Kafka</span>
+          <span class="tag">ELK</span>
+          <span class="tag">Grafana</span>
+          <span class="tag">OpenShift</span>
+          <span class="tag">Kubernetes</span>
+          <span class="tag">Linux</span>
+          <span class="tag">HashiCorp Vault</span>
+          <span class="tag">GreenPlum</span>
+          <span class="tag">Zabbix</span>
+          <span class="tag">S3</span>
+          <span class="tag">Istio</span>
+          <span class="tag">Insomnia</span>
+          <span class="tag">Jira</span>
+          <span class="tag">Confluence</span>
+          <span class="tag">BitBucket</span>
+          <span class="tag green">▸ Текущее место работы</span>
+        </div>
+      </div>
+
+      <div class="timeline-item fade-in">
+        <div class="timeline-dot"></div>
+        <div class="timeline-header">
           <span class="timeline-company">1С-КПД</span>
           <span class="timeline-role">— Системный администратор</span>
-          <span class="timeline-period">02.2023 — настоящее время</span>
+          <span class="timeline-period">02.2023 — 11.2023</span>
         </div>
         <div class="timeline-body">
           <ul>
@@ -399,7 +472,6 @@
           <span class="tag">VMware</span>
           <span class="tag">QEMU-KVM</span>
           <span class="tag">1С</span>
-          <span class="tag green">▸ Текущее место работы</span>
         </div>
       </div>
 
@@ -529,20 +601,35 @@
         </div>
       </div>
       <div class="skill-category fade-in">
-        <h3>📊 Мониторинг</h3>
+        <h3>📊 Мониторинг & Логи</h3>
         <div class="skill-list">
           <span class="skill-item">Zabbix</span>
+          <span class="skill-item">Grafana</span>
+          <span class="skill-item">ELK Stack</span>
+          <span class="skill-item">Elasticsearch</span>
+          <span class="skill-item">Kibana</span>
           <span class="skill-item">ЦКК</span>
           <span class="skill-item">ЦУП</span>
           <span class="skill-item">Bitcop</span>
         </div>
       </div>
       <div class="skill-category fade-in">
-        <h3>☁️ Виртуализация</h3>
+        <h3>☸️ Оркестрация & Стриминг</h3>
+        <div class="skill-list">
+          <span class="skill-item">Kubernetes</span>
+          <span class="skill-item">OpenShift</span>
+          <span class="skill-item">Apache Kafka</span>
+          <span class="skill-item">Istio</span>
+          <span class="skill-item">Helm</span>
+        </div>
+      </div>
+      <div class="skill-category fade-in">
+        <h3>☁️ Виртуализация & Облако</h3>
         <div class="skill-list">
           <span class="skill-item">VMware</span>
           <span class="skill-item">VirtualBox</span>
           <span class="skill-item">QEMU-KVM</span>
+          <span class="skill-item">S3</span>
         </div>
       </div>
       <div class="skill-category fade-in">
@@ -560,6 +647,7 @@
       <div class="skill-category fade-in">
         <h3>🔐 Безопасность & Доступ</h3>
         <div class="skill-list">
+          <span class="skill-item">HashiCorp Vault</span>
           <span class="skill-item">Active Directory</span>
           <span class="skill-item">Group Policy</span>
           <span class="skill-item">Firewall UFW</span>
@@ -568,8 +656,13 @@
         </div>
       </div>
       <div class="skill-category fade-in">
-        <h3>🛠️ Инструменты</h3>
+        <h3>🛠️ Инструменты & Dev</h3>
         <div class="skill-list">
+          <span class="skill-item">Jira</span>
+          <span class="skill-item">Confluence</span>
+          <span class="skill-item">BitBucket</span>
+          <span class="skill-item">Insomnia</span>
+          <span class="skill-item">GreenPlum</span>
           <span class="skill-item">Bitrix</span>
           <span class="skill-item">1С-Документооборот</span>
           <span class="skill-item">Trello</span>
@@ -644,7 +737,7 @@
         <span class="contact-icon">📍</span>
         <div>
           <div class="contact-label">Местонахождение</div>
-          <div class="contact-value">Турция · готов к релокации</div>
+          <div class="contact-value">Москва</div>
         </div>
       </div>
     </div>
