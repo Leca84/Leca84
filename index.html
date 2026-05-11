@@ -115,19 +115,13 @@
       width: 220px; height: 220px;
       border-radius: 50%;
       object-fit: cover; object-position: center 10%;
-      border: 2px solid var(--border);
-      box-shadow: 0 0 0 6px var(--bg2), 0 0 0 7px var(--border);
-      transition: box-shadow 0.3s;
-    }
-    [data-theme="dark"] .hero-photo {
-      mix-blend-mode: multiply;
-      box-shadow: 0 0 0 6px var(--bg), 0 0 40px rgba(88,166,255,0.15);
+      border: 3px solid var(--border);
+      box-shadow: 0 0 0 6px var(--bg2), 0 0 32px rgba(88,166,255,0.18);
+      transition: box-shadow 0.3s, border-color 0.3s;
     }
     .hero-photo-wrap:hover .hero-photo {
-      box-shadow: 0 0 0 6px var(--bg2), 0 0 0 7px var(--accent);
-    }
-    [data-theme="dark"] .hero-photo-wrap:hover .hero-photo {
-      box-shadow: 0 0 0 6px var(--bg), 0 0 50px rgba(88,166,255,0.3);
+      border-color: var(--accent);
+      box-shadow: 0 0 0 6px var(--bg2), 0 0 48px rgba(88,166,255,0.35);
     }
     .hero-badge {
       display: inline-block;
